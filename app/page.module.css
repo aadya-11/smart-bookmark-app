@@ -1,54 +1,218 @@
-.container {
+/* -------- HERO LOGIN PAGE -------- */
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 80px;
-  gap: 20px;
-  font-family: Arial, sans-serif;
+  justify-content: center;
+  text-align: center;
 }
+
+.heroContent {
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.heroSubtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.heroButton {
+  background: #111827;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.06s ease, opacity 0.15s;
+}
+
+.heroButton:hover {
+  opacity: 0.95;
+}
+
+.heroButton:active {
+  transform: scale(0.97);
+}
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 36px;
+  border-radius: 16px;
+  width: 460px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* -------- LOGIN HERO -------- */
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.loginBtn {
+  width: 100%;
+  background: #111827;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.15s;
+}
+
+.loginBtn:hover {
+  opacity: 0.95;
+}
+
+.loginBtn:active {
+  transform: scale(0.97);
+}
+
+/* -------- APP HEADER -------- */
+
+.header {
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* -------- INPUT -------- */
 
 .row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
 }
 
-.button {
-  padding: 8px 16px;
+.input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+.addBtn {
+  background: #6366f1;
+  color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 14px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.login {
-  background: black;
-  color: white;
-}
+/* -------- BOOKMARK LIST -------- */
 
-.add {
-  background: #2563eb;
-  color: white;
-}
-
-.logout {
-  background: #dc2626;
-  color: white;
-}
-
-.email {
-  font-size: 14px;
-  color: #444;
-}
 .bookmark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.bookmark:hover {
+  background: #f1f5f9;
+  transform: scale(1.01);
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d4ed8;
+}
+
+.domain {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.delete {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: #ef4444;
+}
+
+.empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
   margin-top: 10px;
 }
-.delete {
-  background: #6b7280;
+
+/* -------- LOGOUT -------- */
+
+.logout {
+  margin-top: 20px;
+  width: 100%;
+  background: #ef4444;
   color: white;
-  margin-left: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
