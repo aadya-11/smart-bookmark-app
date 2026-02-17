@@ -234,12 +234,23 @@ return (
 
       {bookmarks.map((b) => (
         <div key={b.id} className={styles.bookmarkItem}>
-          <a href={b.url} target="_blank" className={styles.link}>
-            <span className={styles.titleText}>{b.title}</span>
-            <span className={styles.domain}>
-              {new URL(b.url).hostname.replace('www.', '')}
-            </span>
-          </a>
+        <a href={b.url} target="_blank" className={styles.link}>
+  <div className={styles.left}>
+    <img
+      className={styles.favicon}
+      src={`https://www.google.com/s2/favicons?domain=${new URL(b.url).hostname}&sz=64`}
+      alt=""
+    />
+
+    <div className={styles.textBlock}>
+      <span className={styles.titleText}>{b.title}</span>
+      <span className={styles.domain}>
+        {new URL(b.url).hostname.replace('www.', '')}
+      </span>
+    </div>
+  </div>
+</a>
+
 
           <button
             onClick={() => deleteBookmark(b.id)}

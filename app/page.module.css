@@ -197,3 +197,19 @@
   font-size: 13px;
   margin-top: 6px;
 }
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favicon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
