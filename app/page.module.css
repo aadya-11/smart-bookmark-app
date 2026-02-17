@@ -43,94 +43,53 @@
 
 .heroButton:active {
   transform: scale(0.97);
-}
-.page {
+}/* ---------------- APP PAGE ---------------- */
+
+.appPage {
   min-height: 100vh;
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 40px 80px;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  animation: fadeIn 0.35s ease;
 }
 
-.card {
-  background: white;
-  padding: 36px;
-  border-radius: 16px;
-  width: 460px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+/* ---------------- TOP BAR ---------------- */
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
-}
-
-/* -------- LOGIN HERO -------- */
-
-.logo {
-  font-size: 28px;
+.brand {
+  font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  margin-bottom: 8px;
 }
 
-.tagline {
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 28px;
-}
-
-.loginBtn {
-  width: 100%;
-  background: #111827;
+.logoutBtn {
+  background: #ef4444;
   color: white;
-  padding: 12px;
-  border-radius: 8px;
   border: none;
-  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.05s ease, opacity 0.15s;
 }
 
-.loginBtn:hover {
-  opacity: 0.95;
-}
+/* ---------------- INPUT SECTION ---------------- */
 
-.loginBtn:active {
-  transform: scale(0.97);
-}
-
-/* -------- APP HEADER -------- */
-
-.header {
-  margin-bottom: 18px;
-}
-
-.title {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.subtitle {
-  font-size: 12px;
-  color: #9ca3af;
-}
-
-/* -------- INPUT -------- */
-
-.row {
+.inputSection {
   display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   transition: border 0.15s ease, box-shadow 0.15s ease;
 }
@@ -145,38 +104,54 @@
   background: #6366f1;
   color: white;
   border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 12px 18px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.15s;
 }
 
-/* -------- BOOKMARK LIST -------- */
+.addBtn:hover {
+  opacity: 0.95;
+}
 
-.bookmark {
+.addBtn:active {
+  transform: scale(0.97);
+}
+
+/* ---------------- LIST ---------------- */
+
+.list {
+  max-width: 900px;
+}
+
+/* ---------------- BOOKMARK ITEM ---------------- */
+
+.bookmarkItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f9fafb;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 8px;
-  transition: background 0.15s ease, transform 0.05s ease;
+  background: white;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.bookmark:hover {
-  background: #f1f5f9;
-  transform: scale(1.01);
+.bookmarkItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
 }
 
 .link {
-  text-decoration: none;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
-.linkTitle {
-  font-size: 14px;
-  font-weight: 500;
+.titleText {
+  font-size: 15px;
+  font-weight: 600;
   color: #1d4ed8;
 }
 
@@ -198,21 +173,19 @@
 }
 
 .empty {
-  text-align: center;
   color: #9ca3af;
-  font-size: 13px;
-  margin-top: 10px;
+  font-size: 14px;
 }
 
-/* -------- LOGOUT -------- */
+/* ---------------- ANIMATION ---------------- */
 
-.logout {
-  margin-top: 20px;
-  width: 100%;
-  background: #ef4444;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

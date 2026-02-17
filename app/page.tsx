@@ -83,13 +83,7 @@ export default function Home() {
   }
 
   const handleLogin = async () => {
-    // await supabase.auth.signInWithOAuth({ provider: 'google' })
-//     await supabase.auth.signInWithOAuth({
-//   provider: 'google',
-//   options: {
-//     redirectTo: window.location.origin,
-//   },
-// })
+  
 await supabase.auth.signInWithOAuth({
   provider: 'google',
   options: {
@@ -138,94 +132,49 @@ await supabase.auth.signInWithOAuth({
 }
 
 
-  // return (
-//     <div className={styles.container}>
-//       <p className={styles.email}>Logged in as: {user.email}</p>
-
-//       <div className={styles.row}>
-//         <input
-//           className={styles.input}
-//           placeholder="Title"
-//           value={title}
-//           onChange={(e) => setTitle(e.target.value)}
-//         />
-
-//         <input
-//           className={styles.input}
-//           placeholder="URL"
-//           value={url}
-//           onChange={(e) => setUrl(e.target.value)}
-//         />
-
-//         <button
-//           onClick={addBookmark}
-//           className={`${styles.button} ${styles.add}`}
-//         >
-//           Add
-//         </button>
-//       </div>
-
-//       <div>
-//         {bookmarks.map((b) => (
-//   <div key={b.id} className={styles.bookmark}>
-//     <a href={b.url} target="_blank">
-//       {b.title}
-//     </a>
-
-//     <button
-//       onClick={() => deleteBookmark(b.id)}
-//       className={`${styles.button} ${styles.delete}`}
-//     >
-//       Delete
-//     </button>
-//   </div>
-// ))}
-
-//       </div>
-
-//       <button
-//         onClick={handleLogout}
-//         className={`${styles.button} ${styles.logout}`}
-//       >
-//         Logout
-//       </button>
-//     </div>
-//   )
-// }
+ 
 return (
-  <div className={styles.page}>
-    <div className={styles.card}>
-      <div className={styles.header}>
-        <div className={styles.title}>Smart Bookmark</div>
-        <div className={styles.subtitle}>{user.email}</div>
-      </div>
+  <div className={styles.appPage}>
+    {/* Top Header */}
+    <div className={styles.topBar}>
+      <div className={styles.brand}>Smart Bookmark</div>
 
-      <div className={styles.row}>
-        <input
-          className={styles.input}
-          placeholder="Bookmark title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          className={styles.input}
-          placeholder="https://example.com"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        />
-        <button onClick={addBookmark} className={styles.addBtn}>
-          Add
-        </button>
-      </div>
+      <button onClick={handleLogout} className={styles.logoutBtn}>
+        Logout
+      </button>
+    </div>
 
+    {/* Input Section */}
+    <div className={styles.inputSection}>
+      <input
+        className={styles.input}
+        placeholder="Bookmark title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+
+      <input
+        className={styles.input}
+        placeholder="https://example.com"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+
+      <button onClick={addBookmark} className={styles.addBtn}>
+        Add Bookmark
+      </button>
+    </div>
+
+    {/* Bookmark List */}
+    <div className={styles.list}>
       {bookmarks.length === 0 && (
         <div className={styles.empty}>No bookmarks yet</div>
       )}
 
       {bookmarks.map((b) => (
-        <div key={b.id} className={styles.bookmark}>
+        <div key={b.id} className={styles.bookmarkItem}>
           <a href={b.url} target="_blank" className={styles.link}>
-            <span className={styles.linkTitle}>{b.title}</span>
+            <span className={styles.titleText}>{b.title}</span>
             <span className={styles.domain}>
               {new URL(b.url).hostname.replace('www.', '')}
             </span>
@@ -239,12 +188,9 @@ return (
           </button>
         </div>
       ))}
-
-      <button onClick={handleLogout} className={styles.logout}>
-        Logout
-      </button>
     </div>
   </div>
 )
+
 
 }
