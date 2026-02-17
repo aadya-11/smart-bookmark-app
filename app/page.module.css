@@ -65,11 +65,24 @@
 }
 
 .brand {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   color: #111827;
-  letter-spacing: -0.4px;
 }
+
+.titleText {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.1px;
+}
+
+.domain {
+  font-size: 11px;
+  color: #9aa0a6;
+}
+
 
 .logoutBtn {
   background: transparent;
@@ -144,18 +157,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   padding: 13px 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 8px;
-  border: 1px solid #eceff1;
-  transition: background 0.1s ease, transform 0.08s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  animation: riseFade 0.25s ease;
 }
 
 .bookmarkItem:hover {
-  background: #fafafa;
   transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
+
 
 .link {
   display: flex;
@@ -163,7 +180,7 @@
   text-decoration: none;
 }
 
-.titleText {
+/* .titleText {
   font-size: 14px;
   font-weight: 600;
   color: #111827;
@@ -172,7 +189,7 @@
 .domain {
   font-size: 11px;
   color: #9ca3af;
-}
+} */
 
 /* subtle delete, not loud */
 
@@ -212,4 +229,14 @@
 .textBlock {
   display: flex;
   flex-direction: column;
+}
+@keyframes riseFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
