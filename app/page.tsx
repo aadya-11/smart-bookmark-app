@@ -139,7 +139,8 @@ await supabase.auth.signInWithOAuth({
   //   }
   // }
   const addBookmark = async () => {
-  if (!user || !title || !url) return
+ if (!user || !title.trim() || !url.trim()) return
+
 
   const validUrl = normalizeUrl(url)
 
@@ -182,6 +183,11 @@ await supabase.auth.signInWithOAuth({
   )
 }
 
+const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  if (e.key === 'Enter') {
+    addBookmark()
+  }
+}
 
  
 return (
@@ -202,6 +208,7 @@ return (
         placeholder="Bookmark title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+          onKeyDown={handleKeyDown}
       />
 
       <input
@@ -209,6 +216,7 @@ return (
         placeholder="https://example.com"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
+          onKeyDown={handleKeyDown}
       />
 
       <button onClick={addBookmark} className={styles.addBtn}>
