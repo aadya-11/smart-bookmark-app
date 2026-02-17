@@ -76,12 +76,17 @@ export default function Home() {
   }
 
   try {
-    new URL(url) // will throw if invalid
-    return url
+    const parsed = new URL(url)
+
+    // reject if hostname has no dot (e.g. "abc")
+    if (!parsed.hostname.includes('.')) return null
+
+    return parsed.href
   } catch {
     return null
   }
 }
+
 
 
   const deleteBookmark = async (id: string) => {
@@ -154,6 +159,7 @@ await supabase.auth.signInWithOAuth({
   if (!error) {
     setTitle('')
     setUrl('')
+      fetchBookmarks() 
   }
 }
 
