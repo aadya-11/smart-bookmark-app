@@ -1,8 +1,8 @@
-/* -------- HERO LOGIN PAGE -------- */
+/* ================= HERO LOGIN ================= */
 
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  background: #f4f5f7; /* flat neutral, no gradient */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,137 +10,151 @@
 }
 
 .heroContent {
-  max-width: 600px;
+  max-width: 520px;
 }
 
 .heroTitle {
-  font-size: 52px;
+  font-size: 44px;
   font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
+  letter-spacing: -0.6px;
+  color: #111827;
+  margin-bottom: 14px;
 }
 
 .heroSubtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #6b7280;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 .heroButton {
   background: #111827;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 10px;
+  color: #ffffff;
+  padding: 13px 26px;
+  border-radius: 8px;
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 0.06s ease, opacity 0.15s;
+  transition: opacity 0.15s ease, transform 0.05s ease;
 }
 
 .heroButton:hover {
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 .heroButton:active {
   transform: scale(0.97);
-}/* ---------------- APP PAGE ---------------- */
+}
+
+/* ================= APP PAGE ================= */
 
 .appPage {
   min-height: 100vh;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  padding: 40px 80px;
+  background: #f4f5f7;
+  padding: 48px 88px;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  animation: fadeIn 0.35s ease;
 }
 
-/* ---------------- TOP BAR ---------------- */
+/* ================= TOP BAR ================= */
 
 .topBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .brand {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  color: #111827;
+  letter-spacing: -0.4px;
 }
 
 .logoutBtn {
-  background: #ef4444;
-  color: white;
-  border: none;
-  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  padding: 7px 14px;
   border-radius: 6px;
+  font-size: 13px;
   cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
-/* ---------------- INPUT SECTION ---------------- */
+.logoutBtn:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+/* ================= INPUT AREA ================= */
 
 .inputSection {
   display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 28px;
+  max-width: 880px;
 }
 
 .input {
   flex: 1;
-  padding: 12px;
+  padding: 11px 13px;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: 7px;
   font-size: 14px;
-  transition: border 0.15s ease, box-shadow 0.15s ease;
+  background: #ffffff;
+  color: #111827;
+  transition: border 0.12s ease, box-shadow 0.12s ease;
 }
 
 .input:focus {
   outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+  border-color: #d1d5db;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.03);
 }
 
 .addBtn {
-  background: #6366f1;
+  background: #111827;
   color: white;
   border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
+  padding: 11px 18px;
+  border-radius: 7px;
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 0.05s ease, opacity 0.15s;
+  transition: opacity 0.15s ease, transform 0.05s ease;
 }
 
 .addBtn:hover {
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 .addBtn:active {
   transform: scale(0.97);
 }
 
-/* ---------------- LIST ---------------- */
+/* ================= LIST ================= */
 
 .list {
-  max-width: 900px;
+  max-width: 880px;
 }
 
-/* ---------------- BOOKMARK ITEM ---------------- */
+/* ================= BOOKMARK ITEM ================= */
 
 .bookmarkItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
-  padding: 14px 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  background: #ffffff;
+  padding: 13px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #eceff1;
+  transition: background 0.1s ease, transform 0.08s ease;
 }
 
 .bookmarkItem:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  background: #fafafa;
+  transform: translateY(-1px);
 }
 
 .link {
@@ -150,15 +164,17 @@
 }
 
 .titleText {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  color: #1d4ed8;
+  color: #111827;
 }
 
 .domain {
   font-size: 11px;
   color: #9ca3af;
 }
+
+/* subtle delete, not loud */
 
 .delete {
   background: transparent;
@@ -169,23 +185,10 @@
 }
 
 .delete:hover {
-  color: #ef4444;
+  color: #111827;
 }
 
 .empty {
   color: #9ca3af;
   font-size: 14px;
-}
-
-/* ---------------- ANIMATION ---------------- */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
