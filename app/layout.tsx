@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Smart Bookmark",
   description: "Private, real-time bookmark manager",
+   icons: {
+    icon: "/icon.png",   
+  },
 };
 
 
