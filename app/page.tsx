@@ -14,6 +14,8 @@ type Bookmark = {
 }
 
 export default function Home() {
+  const [error, setError] = useState('')
+
   const [user, setUser] = useState<User | null>(null)
   const [title, setTitle] = useState('')
   const [url, setUrl] = useState('')
@@ -63,6 +65,25 @@ export default function Home() {
     }
   }, [])
 
+  const normalizeUrl = (raw: string) => {
+  if (!raw) return null
+
+  let url = raw.trim()
+
+  // auto add https if missing
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    url = 'https://' + url
+  }
+
+  try {
+    new URL(url) // will throw if invalid
+    return url
+  } catch {
+    return null
+  }
+}
+
+
   const deleteBookmark = async (id: string) => {
   const { error } = await supabase.from('bookmarks').delete().eq('id', id)
 
@@ -97,21 +118,45 @@ await supabase.auth.signInWithOAuth({
     await supabase.auth.signOut()
   }
 
+  // const addBookmark = async () => {
+  //   if (!user || !title || !url) return
+
+  //   const { error } = await supabase.from('bookmarks').insert({
+  //     title,
+  //     url,
+  //     user_id: user.id,
+  //   })
+
+  //   if (!error) {
+  //     setTitle('')
+  //     setUrl('')
+  //     fetchBookmarks()
+  //   }
+  // }
   const addBookmark = async () => {
-    if (!user || !title || !url) return
+  if (!user || !title || !url) return
 
-    const { error } = await supabase.from('bookmarks').insert({
-      title,
-      url,
-      user_id: user.id,
-    })
+  const validUrl = normalizeUrl(url)
 
-    if (!error) {
-      setTitle('')
-      setUrl('')
-      fetchBookmarks()
-    }
+  if (!validUrl) {
+    setError('Please enter a valid URL')
+    return
   }
+
+  setError('')
+
+  const { error } = await supabase.from('bookmarks').insert({
+    title,
+    url: validUrl,
+    user_id: user.id,
+  })
+
+  if (!error) {
+    setTitle('')
+    setUrl('')
+  }
+}
+
 
   if (!user) {
   return (
@@ -163,6 +208,8 @@ return (
       <button onClick={addBookmark} className={styles.addBtn}>
         Add Bookmark
       </button>
+      {error && <div className={styles.error}>{error}</div>}
+
     </div>
 
     {/* Bookmark List */}

@@ -192,3 +192,8 @@
   color: #9ca3af;
   font-size: 14px;
 }
+.error {
+  color: #b91c1c;
+  font-size: 13px;
+  margin-top: 6px;
+}
