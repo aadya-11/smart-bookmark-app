@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
 
-## Getting Started
+Smart Bookmark is a simple, private, real-time bookmark manager built using **Next.js (App Router)** and **Supabase**.  
+Users can securely log in with Google, store personal bookmarks, and see updates instantly across multiple tabs.
 
-First, run the development server:
+This project focuses on building a clean, production-style full-stack application with authentication, secure data access, and real-time synchronization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Google OAuth login (Supabase Auth)
+- Add bookmark (Title + URL)
+- Private bookmarks per user (Row Level Security)
+- Delete bookmarks
+- Real-time sync across multiple tabs
+- Clean, minimal, responsive UI
+- Custom favicon & polished UX
+### Extra Improvements (Beyond Requirements)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- URL validation with auto-normalization (`google.com` → `https://google.com`)
+- Keyboard-first UX (Press **Enter** to add bookmark)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Improved input validation to prevent malformed data
 
-## Learn More
+---
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend**
+- Next.js (App Router)
+- React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Backend**
+- Supabase (Auth, Database, Realtime)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Database**
+- PostgreSQL (via Supabase)
 
-## Deploy on Vercel
+**Styling**
+- CSS Modules
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Deployment**
+- Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---## Database Design
+
+**Table:** `bookmarks`
+
+| Column      | Type      | Description |
+|------------|----------|-------------|
+| id         | uuid     | Primary key |
+| created_at | timestamp| Auto-created |
+| title      | text     | Bookmark title |
+| url        | text     | Bookmark URL |
+| user_id    | uuid     | Owner |
+
+---
+
+## Security (Row Level Security)
+
+RLS ensures users can only access their own bookmarks:
+## Problems Faced & What I Learned
+
+### First Time Using Supabase
+This was my first experience using Supabase. Understanding the dashboard, authentication flow, and Row Level Security took some time.
+
+**Learned:** Auth flow, RLS behavior, and realtime subscriptions.
+
+---
+
+### First Deployment Experience
+This was my first time deploying a full-stack application using GitHub and Vercel.
+
+**Learned:** How production differs from local, and how environment variables must be configured in deployment.
+
+---
+
+### OAuth Redirect Issue
+After deployment, login redirected incorrectly due to mismatched redirect URL configuration.
+
+**Solution:** Updated Supabase Auth URL configuration to match production domain.
+
+---
+
+### Missing Environment Variables
+App worked locally but failed during Vercel build.
+
+**Solution:** Added required environment variables in Vercel dashboard.
+
+---
+
+### Multiple Deployment Confusion
+Multiple deployments caused confusion about which project was active.
+
+**Learned:** Importance of environment and deployment clarity.
+
+---
+
+### Input Validation Improvement
+Users could insert invalid URLs initially.
+
+**Solution:** Implemented URL normalization and validation to prevent malformed data.
+
+---
