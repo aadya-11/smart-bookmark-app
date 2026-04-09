@@ -6,7 +6,7 @@ Users can securely log in with Google, store personal bookmarks, and see updates
 This project focuses on building a clean, production-style full-stack application with authentication, secure data access, and real-time synchronization.
 
 ---
-##  LIVE LINK : smart-bookmark-app-byaadya.vercel.app
+##  LIVE LINK : [smart-bookmark-app-byaadya.vercel.app](https://smart-bookmark-app-byaadya.vercel.app/)
 ##  DEMO LINK: https://www.loom.com/share/5d9a66f1f85a4c93a954492adbc495ec
 ---
 ## Features
